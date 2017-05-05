@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Pattern which identifies the process to be stopped in ps results:
+# Pattern which identifies the process to be stopped in 'ps' results:
 PROC_NAME="dummy.sh"
 
-# Ensure your ps command prints the PID in the frist row. There is
-# a second ps down below:
+# Ensure your 'ps' command prints the PID in the frist row, otherwise
+# change 'awk'. There is a second 'ps' down below:
 PID=$( ps -axww | grep $PROC_NAME | grep -v grep | awk '{print $1}' )
 
 # Command to stop the process normally: 
