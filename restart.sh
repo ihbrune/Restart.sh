@@ -3,6 +3,8 @@
 # Pattern which identifies the process to be stopped in ps results:
 PROC_NAME="dummy.sh"
 
+# Ensure your ps command prints the PID in the frist row. There is
+# a second ps down below:
 PID=$( ps -axww | grep $PROC_NAME | grep -v grep | awk '{print $1}' )
 
 # Command to stop the process normally: 
@@ -19,7 +21,6 @@ if [ ! -z "$PID" ]; then
     echo Stopping PID $PID
     $STOP_CMD
 
-    # Ensure this test works on your system:
     until [ -z "$(ps -ax | grep "^ *$PID " | grep -v grep)" ]; do
 	if [ "$WAIT_MAX" -gt 0 ]; then
 	    sleep $WAIT_STEP
