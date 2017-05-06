@@ -3,7 +3,7 @@ A Bash script for graceful restarts
 
 # Purpose
 
-Provides a scripting template that:
+Provides a script template that:
 
 1. Stops a running process
 2. Gives the process a maximum time to terminate itself. With regular checks if this has already happend
